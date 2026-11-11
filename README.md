@@ -34,8 +34,8 @@
 
 ## Как заказать
 
-- Telegram: `@ваш_ник` *(замените на свой)*
-- Email: `you@example.com` *(замените на свой)*
+- Telegram: [@Mrgradi](https://t.me/Mrgradi)
+- Email: [deineko.misha@mail.ru](mailto:deineko.misha@mail.ru)
 
 Опишите задачу в двух предложениях — отвечу со сроком и ценой в тот же день.
 
