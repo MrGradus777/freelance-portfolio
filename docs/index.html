@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Михаил Дейнеко — карточки товаров и презентации</title>
+<meta name="description" content="Дизайнер карточек для Wildberries и Ozon, презентации и инфографика. Портфолио, кейсы, резюме.">
+<style>
+  :root {
+    color-scheme: light;
+    --bg: #f7f5f0;
+    --ink: #1e2b33;
+    --muted: #6b757b;
+    --line: #e2ded4;
+    --card: #ffffff;
+    --accent: #19b5a5;
+    --accent-ink: #0b7a70;
+    --radius: 18px;
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+  }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 16px/1.55 -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap {
+    inline-size: min(1120px, 100% - 2.5rem);
+    margin-inline: auto;
+  }
+  header.hero {
+    padding-block: clamp(2.5rem, 6vw, 4.5rem) clamp(1.5rem, 3vw, 2.5rem);
+  }
+  .kicker {
+    font-size: .8rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    margin: 0 0 .75rem;
+  }
+  h1 {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    line-height: 1.05;
+    letter-spacing: -.02em;
+    margin: 0 0 1rem;
+    max-inline-size: 22ch;
+  }
+  .lead {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: var(--muted);
+    max-inline-size: 60ch;
+    margin: 0 0 1.75rem;
+  }
+  .actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: .75rem;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: .5rem;
+    padding: .75rem 1.2rem;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: var(--card);
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: .95rem;
+    transition: transform .15s ease, border-color .15s ease;
+  }
+  .btn:hover, .btn:focus-visible { border-color: var(--accent); transform: translateY(-1px); }
+  .btn--primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
+  }
+  .btn--primary:hover, .btn--primary:focus-visible { background: var(--accent-ink); border-color: var(--accent-ink); }
+
+  section { padding-block: clamp(2rem, 4vw, 3rem); }
+  .section-head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: .5rem 1rem;
+    margin-block-end: 1.5rem;
+  }
+  h2 {
+    font-size: clamp(1.35rem, 3vw, 1.9rem);
+    letter-spacing: -.01em;
+    margin: 0;
+  }
+  .hint { color: var(--muted); font-size: .9rem; margin: 0; }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+  }
+  .card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: clip;
+    display: flex;
+    flex-direction: column;
+    transition: transform .18s ease, box-shadow .18s ease;
+  }
+  .card:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgb(30 43 51 / 8%); }
+  .card figure { margin: 0; }
+  .card img {
+    display: block;
+    inline-size: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    background: #eee;
+  }
+  .card .body { padding: 1rem 1.1rem 1.2rem; }
+  .card h3 { margin: 0 0 .35rem; font-size: 1.05rem; }
+  .card p { margin: 0; color: var(--muted); font-size: .92rem; }
+  .tag {
+    display: inline-block;
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--accent-ink);
+    background: #ddf3ef;
+    border-radius: 999px;
+    padding: .2rem .6rem;
+    margin-block-end: .5rem;
+  }
+
+  .facts {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    overflow: clip;
+  }
+  .fact { background: var(--card); padding: 1.1rem 1.2rem; }
+  .fact strong { display: block; font-size: 1.5rem; letter-spacing: -.02em; }
+  .fact span { color: var(--muted); font-size: .88rem; }
+
+  footer {
+    border-block-start: 1px solid var(--line);
+    margin-block-start: 2rem;
+    padding-block: 2rem 3rem;
+    color: var(--muted);
+    font-size: .9rem;
+  }
+  footer a { color: var(--ink); }
+  .skip {
+    position: absolute;
+    inset-inline-start: -9999px;
+  }
+  .skip:focus {
+    inset-inline-start: 1rem;
+    inset-block-start: 1rem;
+    background: #fff;
+    padding: .6rem 1rem;
+    border-radius: 8px;
+    z-index: 10;
+  }
+</style>
+</head>
+<body>
+<a class="skip" href="#works">Перейти к работам</a>
+
+<header class="hero wrap">
+  <p class="kicker">Карточки товаров · презентации · инфографика</p>
+  <h1>Делаю карточки для маркетплейсов и презентации, которые читают</h1>
+  <p class="lead">
+    Два года карточек для Wildberries и Ozon: обложки, инфографика, слайды с характеристиками,
+    описания и атрибуты. Собираю по единой сетке, чтобы линейка выглядела как один бренд.
+    Отдельно собираю презентации: структура, типографика, схемы.
+  </p>
+  <div class="actions">
+    <a class="btn btn--primary" href="resume/Deineko_Mikhail_resume.pdf">Резюме (PDF)</a>
+    <a class="btn" href="#works">Смотреть работы</a>
+    <a class="btn" href="#contact">Связаться</a>
+  </div>
+</header>
+
+<section class="wrap" aria-labelledby="facts-title">
+  <h2 id="facts-title" hidden>Коротко о работе</h2>
+  <div class="facts">
+    <div class="fact"><strong>40–120</strong><span>SKU в серии за проект</span></div>
+    <div class="fact"><strong>7</strong><span>категорий товаров в портфолио</span></div>
+    <div class="fact"><strong>WB · Ozon</strong><span>понимаю разницу требований площадок</span></div>
+    <div class="fact"><strong>FLUX · PS</strong><span>генерация визуала и ручная доводка</span></div>
+  </div>
+</section>
+
+<section class="wrap" id="works" aria-labelledby="works-title">
+  <div class="section-head">
+    <h2 id="works-title">Карточки для маркетплейсов</h2>
+    <p class="hint">Семь категорий: от автозапчастей до белья и чая</p>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <figure><img src="product-cards/system/01_hero.jpg" alt="Карточка системы хранения: обложка с товаром" loading="lazy" decoding="async"></figure>
+      <div class="body"><span class="tag">Дом</span><h3>Система хранения</h3><p>Полный комплект: обложка, характеристики, размеры, рич-баннер.</p></div>
+    </article>
+    <article class="card">
+      <figure><img src="product-cards/tea/01_packshot.jpg" alt="Карточка чая: упаковка на нейтральном фоне" loading="lazy" decoding="async"></figure>
+      <div class="body"><span class="tag">Чай</span><h3>Чай и подарочные наборы</h3><p>Состав, происхождение, вес и сроки годности — аккуратно и без выдумок.</p></div>
+    </article>
+    <article class="card">
+      <figure><img src="product-cards/lingerie/01_packshot.jpg" alt="Карточка белья: пакшот" loading="lazy" decoding="async"></figure>
+      <div class="body"><span class="tag">Одежда</span><h3>Бельё</h3><p>Размерная сетка, ткань, посадка, детали — то, что решает в одежде.</p></div>
+    </article>
+    <article class="card">
+      <figure><img src="product-cards/mashanya/01_pajama.jpg" alt="Карточка детской одежды: пижама" loading="lazy" decoding="async"></figure>
+      <div class="body"><span class="tag">Детское</span><h3>Детская одежда</h3><p>Сравнение моделей и размеров, спокойная палитра, без визуального шума.</p></div>
+    </article>
+    <article class="card">
+      <figure><img src="product-cards/auto-parts/01_thermostat_new.jpg" alt="Карточка автозапчасти: термостат" loading="lazy" decoding="async"></figure>
+      <div class="body"><span class="tag">Авто</span><h3>Автозапчасти</h3><p>Применяемость, совместимость, артикулы. Здесь продаёт точность, а не красота.</p></div>
+    </article>
+    <article class="card">
+      <figure><img src="product-cards/klesh/01_cover.jpg" alt="Карточка товаров для рыбалки: обложка" loading="lazy" decoding="async"></figure>
+      <div class="body"><span class="tag">Рыбалка</span><h3>Товары для рыбалки</h3><p>Обложка с оффером и УТП-слайд: снаряжение продаётся через понятную выгоду.</p></div>
+    </article>
+    <article class="card">
+      <figure><img src="product-cards/kaydzo/02_shower.jpg" alt="Карточка сантехники: душевая лейка" loading="lazy" decoding="async"></figure>
+      <div class="body"><span class="tag">Сантехника</span><h3>Душевое оборудование</h3><p>Технические параметры человеческим языком, без мелкого текста.</p></div>
+    </article>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="tests-title">
+  <div class="section-head">
+    <h2 id="tests-title">Тестовые задания</h2>
+    <p class="hint">То, что делал по брифу заказчика</p>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <figure><img src="tests/bel-vacuum-full/01_cover_light.jpg" alt="Обложка карточки моющего пылесоса" loading="lazy" decoding="async"></figure>
+      <div class="body"><span class="tag">Тест</span><h3>Моющий пылесос künf</h3><p>14 макетов: три обложки, было/стало, до/после, покрытия, автономность, комплект.</p></div>
+    </article>
+    <article class="card">
+      <figure><img src="tests/bel-vacuum-full/08_baki.jpg" alt="Слайд со схемой баков пылесоса" loading="lazy" decoding="async"></figure>
+      <div class="body"><span class="tag">Тест</span><h3>Схема и характеристики</h3><p>Сложное объяснил просто: два бака, объёмы, что происходит при заполнении.</p></div>
+    </article>
+    <article class="card">
+      <figure><img src="tests/bel-vacuum-full/05_do_posle.jpg" alt="Слайд до и после уборки" loading="lazy" decoding="async"></figure>
+      <div class="body"><span class="tag">Тест</span><h3>До и после</h3><p>Сравнение на одинаковом свете и ракурсе — без обмана в пользу товара.</p></div>
+    </article>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="how-title">
+  <div class="section-head"><h2 id="how-title">Как я работаю</h2></div>
+  <div class="grid">
+    <article class="card"><div class="body">
+      <h3>1. Шаблон на категорию</h3>
+      <p>Сначала сетка, типографика и правила. Потом наполнение — поэтому новый SKU собирается за вечер, а не за три дня.</p>
+    </div></article>
+    <article class="card"><div class="body">
+      <h3>2. Характеристики сверяю с таблицей</h3>
+      <p>Никаких придуманных цифр: состав, вес, размеры и совместимость сверяю по данным поставщика.</p>
+    </div></article>
+    <article class="card"><div class="body">
+      <h3>3. Товар остаётся товаром</h3>
+      <p>Нейросети — для фонов и сцен. Форму, цвет и фактуру товара не искажаю: это не картинка ради картинки.</p>
+    </div></article>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <p><strong>Связь:</strong> hh.ru — отклики и чат · <a href="resume/Deineko_Mikhail_resume.pdf">резюме в PDF</a></p>
+    <p>Готов сделать тестовую карточку по вашему товару и показать, как оформил бы категорию.</p>
+  </div>
+</footer>
+
+</body>
+</html>
