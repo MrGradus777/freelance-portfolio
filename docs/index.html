@@ -115,6 +115,7 @@
   }
   .card:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgb(30 43 51 / 8%); }
   .card figure { margin: 0; }
+  .card figure a { display: block; }
   .card img {
     display: block;
     inline-size: 100%;
@@ -124,8 +125,10 @@
   }
   .card--deck img { aspect-ratio: 16 / 9; object-fit: cover; }
   .card .body { padding: 1rem 1.1rem 1.2rem; }
-  .card h3 { margin: 0 0 .35rem; font-size: 1.05rem; }
+  .card h3 { margin: 0 0 .5rem; font-size: 1.05rem; }
   .card p { margin: 0; color: var(--muted); font-size: .92rem; }
+  .case p + p { margin-block-start: .35rem; }
+  .case b { color: var(--ink); font-weight: 600; }
   .tag {
     display: inline-block;
     font-size: .75rem;
@@ -151,6 +154,11 @@
   .fact { background: var(--card); padding: 1.1rem 1.2rem; }
   .fact strong { display: block; font-size: 1.5rem; letter-spacing: -.02em; }
   .fact span { color: var(--muted); font-size: .88rem; }
+
+  .skills { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: clip; }
+  .skill { background: var(--card); padding: 1.1rem 1.2rem; }
+  .skill h3 { margin: 0 0 .35rem; font-size: 1rem; }
+  .skill p { margin: 0; color: var(--muted); font-size: .92rem; }
 
   footer {
     border-block-start: 1px solid var(--line);
@@ -186,10 +194,8 @@
     Отдельно собираю презентации: структура, типографика, схемы.
   </p>
   <div class="actions">
-    <a class="btn btn--primary" href="resume/Deineko_Mikhail_resume.pdf">Резюме (PDF)</a>
-    <a class="btn" href="#works">Смотреть работы</a>
-    <a class="btn" href="#decks-title">Презентации</a>
-    <a class="btn" href="#contact">Связаться</a>
+    <a class="btn btn--primary" href="#works">Смотреть работы</a>
+    <a class="btn" href="resume/Deineko_Mikhail_resume.pdf">Резюме (PDF)</a>
   </div>
 </header>
 
@@ -206,40 +212,72 @@
 <section class="wrap" id="works" aria-labelledby="works-title">
   <div class="section-head">
     <h2 id="works-title">Карточки для маркетплейсов</h2>
-    <p class="hint">Семь категорий: от автозапчастей до одежды</p>
+    <p class="hint">Одежда, чай, авто, сантехника, посуда — 8 карточек</p>
   </div>
   <div class="grid">
     <article class="card">
-      <figure><img src="product-cards/klesh/01_cover.jpg" alt="Карточка брюк клёш: обложка с моделью" loading="lazy" decoding="async"></figure>
-      <div class="body"><span class="tag">Одежда</span><h3>Брюки клёш</h3><p>Посадка и размерная сетка 38–52 вынесены на обложку: в одежде решает не декор, а понятность.</p></div>
+      <figure><a href="product-cards/klesh/01_cover.jpg" target="_blank" rel="noopener"><img src="product-cards/klesh/01_cover.jpg" alt="Карточка брюк клёш: обложка с моделью" loading="lazy" decoding="async"></a></figure>
+      <div class="body case"><span class="tag">Одежда</span><h3>Брюки клёш</h3>
+        <p><b>Задача.</b> Показать посадку и уложить размерную сетку 38–52.</p>
+        <p><b>Что сделал.</b> Вынес размеры и длину на обложку, убрал второй акцент.</p>
+        <p><b>Результат.</b> Понятно, как сидит, ещё до открытия карточки.</p>
+      </div>
     </article>
     <article class="card">
-      <figure><img src="product-cards/tea/01_packshot.jpg" alt="Карточка чая ASSAM: банка на тёмном фоне" loading="lazy" decoding="async"></figure>
-      <div class="body"><span class="tag">Чай</span><h3>Чай ASSAM</h3><p>Пакшот на глубоком зелёном: товар читается в мелкой миниатюре поиска.</p></div>
+      <figure><a href="product-cards/tea/01_packshot.jpg" target="_blank" rel="noopener"><img src="product-cards/tea/01_packshot.jpg" alt="Карточка чая ASSAM: банка на тёмном фоне" loading="lazy" decoding="async"></a></figure>
+      <div class="body case"><span class="tag">Чай</span><h3>Чай ASSAM</h3>
+        <p><b>Задача.</b> Чтобы товар читался в мелкой миниатюре поиска.</p>
+        <p><b>Что сделал.</b> Пакшот на глубоком зелёном, крупный товар, минимум текста.</p>
+        <p><b>Результат.</b> Банка узнаётся даже в списке на телефоне.</p>
+      </div>
     </article>
     <article class="card">
-      <figure><img src="product-cards/lingerie/01_packshot.jpg" alt="Карточка белья: пакшот" loading="lazy" decoding="async"></figure>
-      <div class="body"><span class="tag">Одежда</span><h3>Бельё</h3><p>Пакшот на нейтральном фоне: товар видно целиком, без реквизита и лишнего декора.</p></div>
+      <figure><a href="product-cards/lingerie/01_packshot.jpg" target="_blank" rel="noopener"><img src="product-cards/lingerie/01_packshot.jpg" alt="Карточка белья: пакшот на нейтральном фоне" loading="lazy" decoding="async"></a></figure>
+      <div class="body case"><span class="tag">Одежда</span><h3>Бельё</h3>
+        <p><b>Задача.</b> Показать товар целиком, без реквизита.</p>
+        <p><b>Что сделал.</b> Пакшот на нейтральном фоне и ровном свете.</p>
+        <p><b>Результат.</b> Форма и цвет видны без домыслов.</p>
+      </div>
     </article>
     <article class="card">
-      <figure><img src="product-cards/mashanya/01_pajama.jpg" alt="Карточка детской одежды: пижама" loading="lazy" decoding="async"></figure>
-      <div class="body"><span class="tag">Детское</span><h3>Детская одежда</h3><p>Комплект пижамы: состав, мягкая посадка и манжеты вынесены списком — родителю нужен размер и ткань, а не визуальный шум.</p></div>
+      <figure><a href="product-cards/mashanya/01_pajama.jpg" target="_blank" rel="noopener"><img src="product-cards/mashanya/01_pajama.jpg" alt="Карточка детской одежды: комплект пижамы" loading="lazy" decoding="async"></a></figure>
+      <div class="body case"><span class="tag">Детское</span><h3>Детская одежда</h3>
+        <p><b>Задача.</b> Родителю нужны состав и размер, а не визуальный шум.</p>
+        <p><b>Что сделал.</b> Список свойств: дышащий трикотаж, мягкие манжеты, свободная посадка.</p>
+        <p><b>Результат.</b> Спокойная палитра, товар на модели, характеристики на виду.</p>
+      </div>
     </article>
     <article class="card">
-      <figure><img src="product-cards/auto-parts/01_thermostat_new.jpg" alt="Карточка автозапчасти: термостат крупным планом" loading="lazy" decoding="async"></figure>
-      <div class="body"><span class="tag">Авто</span><h3>Автозапчасти</h3><p>Термостат: температура открытия клапана, ресурс 20+ лет и совместимость. Здесь продаёт точность, а не красота.</p></div>
+      <figure><a href="product-cards/auto-parts/01_thermostat_new.jpg" target="_blank" rel="noopener"><img src="product-cards/auto-parts/01_thermostat_new.jpg" alt="Карточка автозапчасти: термостат крупным планом" loading="lazy" decoding="async"></a></figure>
+      <div class="body case"><span class="tag">Авто</span><h3>Автозапчасти</h3>
+        <p><b>Задача.</b> Здесь продаёт точность, а не красота.</p>
+        <p><b>Что сделал.</b> Вынес температуру открытия клапана 89°, ресурс 20+ лет и совместимость.</p>
+        <p><b>Результат.</b> Видно, подходит деталь или нет, без чтения описания.</p>
+      </div>
     </article>
     <article class="card">
-      <figure><img src="product-cards/kaydzo/02_shower.jpg" alt="Карточка душевой системы: товар на камне" loading="lazy" decoding="async"></figure>
-      <div class="body"><span class="tag">Сантехника</span><h3>Душевая система</h3><p>Гарантия, термостат 5–38–50 °C и происхождение — вынесены блоками, а не спрятаны в описании.</p></div>
+      <figure><a href="product-cards/kaydzo/02_shower.jpg" target="_blank" rel="noopener"><img src="product-cards/kaydzo/02_shower.jpg" alt="Карточка душевой системы: товар на камне" loading="lazy" decoding="async"></a></figure>
+      <div class="body case"><span class="tag">Сантехника</span><h3>Душевая система</h3>
+        <p><b>Задача.</b> Объяснить, за что здесь платят больше.</p>
+        <p><b>Что сделал.</b> Гарантия 10 лет, термостат 5–38–50 °C и происхождение — отдельными блоками.</p>
+        <p><b>Результат.</b> Аргументы на виду, а не спрятаны в описании.</p>
+      </div>
     </article>
     <article class="card">
-      <figure><img src="product-cards/system/01_hero.jpg" alt="Карточка термокружки TERRA: обложка" loading="lazy" decoding="async"></figure>
-      <div class="body"><span class="tag">Посуда</span><h3>Термокружка TERRA</h3><p>Главная цифра — 8 часов тепла — стоит на обложке крупнее названия.</p></div>
+      <figure><a href="product-cards/system/01_hero.jpg" target="_blank" rel="noopener"><img src="product-cards/system/01_hero.jpg" alt="Карточка термокружки TERRA: обложка" loading="lazy" decoding="async"></a></figure>
+      <div class="body case"><span class="tag">Посуда</span><h3>Термокружка TERRA</h3>
+        <p><b>Задача.</b> Вывести главное преимущество на первый экран.</p>
+        <p><b>Что сделал.</b> Цифру «8 часов тепла» поставил крупнее названия товара.</p>
+        <p><b>Результат.</b> Преимущество считывается сразу, без текста.</p>
+      </div>
     </article>
     <article class="card">
-      <figure><img src="product-cards/system/02_chart.jpg" alt="Слайд с графиком остывания термокружки" loading="lazy" decoding="async"></figure>
-      <div class="body"><span class="tag">Инфографика</span><h3>График остывания</h3><p>95 → 62 °C за 8 часов, холодное 4 → 9 °C. Показал процесс, а не слово «долго держит».</p></div>
+      <figure><a href="product-cards/system/02_chart.jpg" target="_blank" rel="noopener"><img src="product-cards/system/02_chart.jpg" alt="Слайд с графиком остывания термокружки" loading="lazy" decoding="async"></a></figure>
+      <div class="body case"><span class="tag">Инфографика</span><h3>График остывания</h3>
+        <p><b>Задача.</b> Доказать слова «долго держит тепло».</p>
+        <p><b>Что сделал.</b> Два графика: 95 → 62 °C за 8 часов и холодное 4 → 9 °C.</p>
+        <p><b>Результат.</b> Показан процесс, а не обещание.</p>
+      </div>
     </article>
   </div>
 </section>
@@ -251,21 +289,52 @@
   </div>
   <div class="grid">
     <article class="card">
-      <figure><img src="tests/bel-vacuum-full/01_cover_light.jpg" alt="Обложка карточки моющего пылесоса" loading="lazy" decoding="async"></figure>
-      <div class="body"><span class="tag">Тест</span><h3>Моющий пылесос künf</h3><p>14 макетов: три обложки, было/стало, до/после, покрытия, автономность, комплект.</p></div>
+      <figure><a href="tests/bel-vacuum-full/01_cover_light.jpg" target="_blank" rel="noopener"><img src="tests/bel-vacuum-full/01_cover_light.jpg" alt="Обложка карточки моющего пылесоса" loading="lazy" decoding="async"></a></figure>
+      <div class="body case"><span class="tag">Тест</span><h3>Моющий пылесос künf</h3>
+        <p><b>Задача.</b> Бриф на 14 макетов для карточки.</p>
+        <p><b>Что сделал.</b> Три обложки, было/стало, до/после, покрытия, автономность, комплект.</p>
+        <p><b>Результат.</b> Полный комплект слайдов из одного технического задания.</p>
+      </div>
     </article>
     <article class="card">
-      <figure><img src="tests/bel-vacuum-full/08_baki.jpg" alt="Слайд со схемой баков пылесоса" loading="lazy" decoding="async"></figure>
-      <div class="body"><span class="tag">Тест</span><h3>Схема и характеристики</h3><p>Сложное объяснил просто: два бака, объёмы, что происходит при заполнении.</p></div>
+      <figure><a href="tests/bel-vacuum-full/08_baki.jpg" target="_blank" rel="noopener"><img src="tests/bel-vacuum-full/08_baki.jpg" alt="Слайд со схемой баков пылесоса" loading="lazy" decoding="async"></a></figure>
+      <div class="body case"><span class="tag">Тест</span><h3>Схема и характеристики</h3>
+        <p><b>Задача.</b> Объяснить устройство без инструкции.</p>
+        <p><b>Что сделал.</b> Схему двух баков: 485 мл чистой и 400 мл грязной воды.</p>
+        <p><b>Результат.</b> Сложное объяснено просто и без домыслов.</p>
+      </div>
     </article>
     <article class="card">
-      <figure><img src="tests/bel-vacuum-full/05_do_posle.jpg" alt="Слайд до и после уборки" loading="lazy" decoding="async"></figure>
-      <div class="body"><span class="tag">Тест</span><h3>До и после</h3><p>Один проход — и пятна нет. Сравнение на одинаковом свете и ракурсе, без обмана в пользу товара.</p></div>
+      <figure><a href="tests/bel-vacuum-full/05_do_posle.jpg" target="_blank" rel="noopener"><img src="tests/bel-vacuum-full/05_do_posle.jpg" alt="Слайд до и после уборки" loading="lazy" decoding="async"></a></figure>
+      <div class="body case"><span class="tag">Тест</span><h3>До и после</h3>
+        <p><b>Задача.</b> Показать эффект, не обманывая.</p>
+        <p><b>Что сделал.</b> Сравнение на одинаковом свете и ракурсе, один проход.</p>
+        <p><b>Результат.</b> Видно разницу без подгонки в пользу товара.</p>
+      </div>
     </article>
     <article class="card">
-      <figure><img src="jayway/cover_04_hook829.jpg" alt="Обложка рашгарда JAYWAY: тёмная подача, крупный план" loading="lazy" decoding="async"></figure>
-      <div class="body"><span class="tag">Тест · JAYWAY</span><h3>Обложки для рашгарда</h3><p>Пять концепций и два варианта компоновки: светлая редакционная и тёмная, где видно ткань. Ниже — три финальных.</p></div>
+      <figure><a href="jayway/cover_04_hook829.jpg" target="_blank" rel="noopener"><img src="jayway/cover_04_hook829.jpg" alt="Обложка рашгарда JAYWAY: тёмная подача, крупный план" loading="lazy" decoding="async"></a></figure>
+      <div class="body case"><span class="tag">Тест · JAYWAY</span><h3>Обложки для рашгарда</h3>
+        <p><b>Задача.</b> Две самостоятельные концепции обложки, подчеркнуть более высокий сегмент.</p>
+        <p><b>Что сделал.</b> Пять концепций: светлая редакционная и тёмная, где видно ткань и компрессию.</p>
+        <p><b>Результат.</b> Три финальных варианта и разбор конкурентов с обоснованием.</p>
+      </div>
     </article>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="skills-title">
+  <div class="section-head">
+    <h2 id="skills-title">Что я умею</h2>
+    <p class="hint">Конкретика, а не список программ</p>
+  </div>
+  <div class="skills">
+    <div class="skill"><h3>Карточки и инфографика</h3><p>40–120 SKU за проект: обложки, слайды с характеристиками, схемы, размерные сетки. Сборка по единой сетке, чтобы серия выглядела как один бренд.</p></div>
+    <div class="skill"><h3>Презентации</h3><p>Структура, типографика, схемы и графики. Отдаю PDF и редактируемый файл, чтобы можно было править текст без меня.</p></div>
+    <div class="skill"><h3>Нейровизуал</h3><p>ComfyUI с моделью FLUX локально: фоны и сцены без стоков и подписок. Товар при этом остаётся настоящим — форму и цвет не искажаю.</p></div>
+    <div class="skill"><h3>Тексты и характеристики</h3><p>Описания, атрибуты, SEO без набивки. Цифры сверяю по таблицам поставщика, а не придумываю.</p></div>
+    <div class="skill"><h3>Инструменты</h3><p>Photoshop, Illustrator, Figma, PowerPoint и Google Slides, Excel и Google Таблицы. Из кода — Python для рутины: обработка изображений, сверка таблиц.</p></div>
+    <div class="skill"><h3>Что не делаю</h3><p>Видео и монтаж, 3D, рекламные кабинеты и ставки. Скажу сразу, чтобы не тратить ваше время.</p></div>
   </div>
 </section>
 
@@ -276,17 +345,17 @@
   </div>
   <div class="grid">
     <article class="card card--deck">
-      <figure><img src="decks/preview-system.png" alt="Обложка презентации «Система вместо ста карточек»" loading="lazy" decoding="async"></figure>
+      <figure><a href="decks/karty-system.pdf" target="_blank" rel="noopener"><img src="decks/preview-system.png" alt="Обложка презентации «Система вместо ста карточек»" loading="lazy" decoding="async"></a></figure>
       <div class="body"><span class="tag">6 слайдов</span><h3>Система вместо ста карточек</h3><p>Подход к работе: один шаблон на категорию, а не правки по одной карточке.</p>
       <p style="margin-block-start:.7rem"><a class="btn" href="decks/karty-system.pdf">Смотреть PDF</a></p></div>
     </article>
     <article class="card card--deck">
-      <figure><img src="decks/preview-case.png" alt="Обложка презентации «14 макетов из одного ТЗ»" loading="lazy" decoding="async"></figure>
+      <figure><a href="decks/case-vacuum.pdf" target="_blank" rel="noopener"><img src="decks/preview-case.png" alt="Обложка презентации «14 макетов из одного ТЗ»" loading="lazy" decoding="async"></a></figure>
       <div class="body"><span class="tag">7 слайдов</span><h3>14 макетов из одного ТЗ</h3><p>Разбор кейса: что решил, где упёрся в исходники и что делал вместо этого.</p>
       <p style="margin-block-start:.7rem"><a class="btn" href="decks/case-vacuum.pdf">Смотреть PDF</a></p></div>
     </article>
     <article class="card card--deck">
-      <figure><img src="jayway/preview.jpg" alt="Обложка рашгарда JAYWAY: светлая подача" loading="lazy" decoding="async"></figure>
+      <figure><a href="jayway/jayway-covers.pdf" target="_blank" rel="noopener"><img src="jayway/preview.jpg" alt="Обложка рашгарда JAYWAY: светлая подача" loading="lazy" decoding="async"></a></figure>
       <div class="body"><span class="tag">3 обложки</span><h3>JAYWAY: обложки для рашгарда</h3><p>Тестовое задание: три варианта подачи одного товара и логика, почему каждый выглядит дороже.</p>
       <p style="margin-block-start:.7rem"><a class="btn" href="jayway/jayway-covers.pdf">Смотреть PDF</a></p></div>
     </article>
