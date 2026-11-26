@@ -168,6 +168,49 @@
     font-size: .9rem;
   }
   footer a { color: var(--ink); }
+
+  /* лайтбокс */
+  .card figure a { cursor: zoom-in; }
+  .lb {
+    position: fixed; inset: 0; z-index: 100;
+    display: none; align-items: center; justify-content: center;
+    background: rgb(15 20 24 / 92%);
+    padding: 3vmin;
+  }
+  .lb[open], .lb.is-open { display: flex; }
+  .lb img {
+    max-inline-size: min(1100px, 92vw);
+    max-block-size: 86vh;
+    object-fit: contain;
+    border-radius: 10px;
+    box-shadow: 0 30px 80px rgb(0 0 0 / 45%);
+    background: #fff;
+  }
+  .lb button {
+    position: absolute;
+    border: 0;
+    background: rgb(255 255 255 / 12%);
+    color: #fff;
+    font-size: 1.6rem;
+    inline-size: 3rem;
+    block-size: 3rem;
+    border-radius: 999px;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: background .15s ease;
+  }
+  .lb button:hover, .lb button:focus-visible { background: rgb(255 255 255 / 26%); }
+  .lb .prev { inset-inline-start: 2vmin; }
+  .lb .next { inset-inline-end: 2vmin; }
+  .lb .close { inset-block-start: 2vmin; inset-inline-end: 2vmin; font-size: 1.2rem; }
+  .lb .count {
+    position: absolute; inset-block-end: 2.5vmin; inset-inline-start: 50%;
+    transform: translateX(-50%);
+    color: #fff; font-size: .9rem; letter-spacing: .06em; opacity: .8;
+  }
+  .gallery-hint { font-size: .8rem; color: var(--muted); margin-block-start: .5rem; }
+
   .skip {
     position: absolute;
     inset-inline-start: -9999px;
@@ -203,7 +246,7 @@
   <h2 id="facts-title" hidden>Коротко о работе</h2>
   <div class="facts">
     <div class="fact"><strong>40–120</strong><span>SKU в серии за проект</span></div>
-    <div class="fact"><strong>8</strong><span>карточек в портфолио</span></div>
+    <div class="fact"><strong>10</strong><span>работ и 3 презентации</span></div>
     <div class="fact"><strong>WB · Ozon</strong><span>понимаю разницу требований площадок</span></div>
     <div class="fact"><strong>FLUX · PS</strong><span>генерация визуала и ручная доводка</span></div>
   </div>
@@ -212,40 +255,18 @@
 <section class="wrap" id="works" aria-labelledby="works-title">
   <div class="section-head">
     <h2 id="works-title">Карточки для маркетплейсов</h2>
-    <p class="hint">Одежда, чай, авто, сантехника, посуда — 8 карточек</p>
+    <p class="hint">Одежда, авто, сантехника, посуда — нажмите на работу, чтобы полистать</p>
   </div>
   <div class="grid">
     <article class="card">
-      <figure><a href="product-cards/klesh/01_cover.jpg" target="_blank" rel="noopener"><img src="product-cards/klesh/01_cover.jpg" alt="Карточка брюк клёш: обложка с моделью" loading="lazy" decoding="async"></a></figure>
+      <figure><a href="product-cards/klesh/01_cover.jpg" data-gallery="product-cards/klesh/01_cover.jpg|product-cards/klesh/02_utp.jpg|product-cards/klesh/03_source.jpg"><img src="product-cards/klesh/01_cover.jpg" alt="Карточка брюк клёш: обложка с моделью" loading="lazy" decoding="async"></a></figure>
       <div class="body case"><span class="tag">Одежда</span><h3>Брюки клёш</h3>
         <p><b>Задача.</b> Показать посадку и уложить размерную сетку 38–52.</p>
         <p><b>Что сделал.</b> Вынес размеры и длину на обложку, убрал второй акцент.</p>
         <p><b>Результат.</b> Понятно, как сидит, ещё до открытия карточки.</p>
       </div>
     </article>
-    <article class="card">
-      <figure><a href="product-cards/tea/01_packshot.jpg" target="_blank" rel="noopener"><img src="product-cards/tea/01_packshot.jpg" alt="Карточка чая ASSAM: банка на тёмном фоне" loading="lazy" decoding="async"></a></figure>
-      <div class="body case"><span class="tag">Чай</span><h3>Чай ASSAM</h3>
-        <p><b>Задача.</b> Чтобы товар читался в мелкой миниатюре поиска.</p>
-        <p><b>Что сделал.</b> Пакшот на глубоком зелёном, крупный товар, минимум текста.</p>
-        <p><b>Результат.</b> Банка узнаётся даже в списке на телефоне.</p>
-      </div>
-    </article>
-    <article class="card">
-      <figure><a href="product-cards/lingerie/01_packshot.jpg" target="_blank" rel="noopener"><img src="product-cards/lingerie/01_packshot.jpg" alt="Карточка белья: пакшот на нейтральном фоне" loading="lazy" decoding="async"></a></figure>
-      <div class="body case"><span class="tag">Одежда</span><h3>Бельё</h3>
-        <p><b>Задача.</b> Показать товар целиком, без реквизита.</p>
-        <p><b>Что сделал.</b> Пакшот на нейтральном фоне и ровном свете.</p>
-        <p><b>Результат.</b> Форма и цвет видны без домыслов.</p>
-      </div>
-    </article>
-    <article class="card">
-      <figure><a href="product-cards/mashanya/01_pajama.jpg" target="_blank" rel="noopener"><img src="product-cards/mashanya/01_pajama.jpg" alt="Карточка женской пижамы: комплект на модели" loading="lazy" decoding="async"></a></figure>
-      <div class="body case"><span class="tag">Одежда</span><h3>Женская пижама</h3>
-        <p><b>Задача.</b> Показать посадку и снять вопрос про ткань.</p>
-        <p><b>Что сделал.</b> Вискозу, размеры S–XL и крой шорт с рюшей вынес списком под фото.</p>
-        <p><b>Результат.</b> Состав и размер видно без открытия описания.</p>
-      </div>
+    <article class="ca </div>
     </article>
     <article class="card">
       <figure><a href="product-cards/auto-parts/01_thermostat_new.jpg" target="_blank" rel="noopener"><img src="product-cards/auto-parts/01_thermostat_new.jpg" alt="Карточка автозапчасти: термостат крупным планом" loading="lazy" decoding="async"></a></figure>
@@ -256,7 +277,7 @@
       </div>
     </article>
     <article class="card">
-      <figure><a href="product-cards/kaydzo/02_shower.jpg" target="_blank" rel="noopener"><img src="product-cards/kaydzo/02_shower.jpg" alt="Карточка душевой системы: товар на камне" loading="lazy" decoding="async"></a></figure>
+      <figure><a href="product-cards/kaydzo/02_shower.jpg" data-gallery="product-cards/kaydzo/02_shower.jpg|product-cards/kaydzo/03_bg.jpg|product-cards/kaydzo/04_water.jpg"><img src="product-cards/kaydzo/02_shower.jpg" alt="Карточка душевой системы: товар на камне" loading="lazy" decoding="async"></a></figure>
       <div class="body case"><span class="tag">Сантехника</span><h3>Душевая система</h3>
         <p><b>Задача.</b> Объяснить, за что здесь платят больше.</p>
         <p><b>Что сделал.</b> Гарантия 10 лет, термостат 5–38–50 °C и происхождение — отдельными блоками.</p>
@@ -264,7 +285,7 @@
       </div>
     </article>
     <article class="card">
-      <figure><a href="product-cards/system/01_hero.jpg" target="_blank" rel="noopener"><img src="product-cards/system/01_hero.jpg" alt="Карточка термокружки TERRA: обложка" loading="lazy" decoding="async"></a></figure>
+      <figure><a href="product-cards/system/01_hero.jpg" data-gallery="product-cards/system/01_hero.jpg|product-cards/system/02_chart.jpg"><img src="product-cards/system/01_hero.jpg" alt="Карточка термокружки TERRA: обложка" loading="lazy" decoding="async"></a></figure>
       <div class="body case"><span class="tag">Посуда</span><h3>Термокружка TERRA</h3>
         <p><b>Задача.</b> Вывести главное преимущество на первый экран.</p>
         <p><b>Что сделал.</b> Цифру «8 часов тепла» поставил крупнее названия товара.</p>
@@ -272,7 +293,7 @@
       </div>
     </article>
     <article class="card">
-      <figure><a href="product-cards/system/02_chart.jpg" target="_blank" rel="noopener"><img src="product-cards/system/02_chart.jpg" alt="Слайд с графиком остывания термокружки" loading="lazy" decoding="async"></a></figure>
+      <figure><a href="product-cards/system/02_chart.jpg" data-gallery="product-cards/system/01_hero.jpg|product-cards/system/02_chart.jpg"><img src="product-cards/system/02_chart.jpg" alt="Слайд с графиком остывания термокружки" loading="lazy" decoding="async"></a></figure>
       <div class="body case"><span class="tag">Инфографика</span><h3>График остывания</h3>
         <p><b>Задача.</b> Доказать слова «долго держит тепло».</p>
         <p><b>Что сделал.</b> Два графика: 95 → 62 °C за 8 часов и холодное 4 → 9 °C.</p>
@@ -289,7 +310,7 @@
   </div>
   <div class="grid">
     <article class="card">
-      <figure><a href="tests/bel-vacuum-full/01_cover_light.jpg" target="_blank" rel="noopener"><img src="tests/bel-vacuum-full/01_cover_light.jpg" alt="Обложка карточки моющего пылесоса" loading="lazy" decoding="async"></a></figure>
+      <figure><a href="tests/bel-vacuum-full/01_cover_light.jpg" data-gallery="tests/bel-vacuum-full/01_cover_light.jpg|tests/bel-vacuum-full/05_do_posle.jpg|tests/bel-vacuum-full/08_baki.jpg|tests/bel-vacuum-full/09_kit.jpg"><img src="tests/bel-vacuum-full/01_cover_light.jpg" alt="Обложка карточки моющего пылесоса" loading="lazy" decoding="async"></a></figure>
       <div class="body case"><span class="tag">Тест</span><h3>Моющий пылесос künf</h3>
         <p><b>Задача.</b> Бриф на 14 макетов для карточки.</p>
         <p><b>Что сделал.</b> Три обложки, было/стало, до/после, покрытия, автономность, комплект.</p>
@@ -313,11 +334,30 @@
       </div>
     </article>
     <article class="card">
-      <figure><a href="jayway/cover_04_hook829.jpg" target="_blank" rel="noopener"><img src="jayway/cover_04_hook829.jpg" alt="Обложка рашгарда JAYWAY: тёмная подача, крупный план" loading="lazy" decoding="async"></a></figure>
+      <figure><a href="jayway/cover_04_hook829.jpg" data-gallery="jayway/cover_01b_right.jpg|jayway/cover_04_hook829.jpg|jayway/cover_05_hook830.jpg"><img src="jayway/cover_04_hook829.jpg" alt="Обложка рашгарда JAYWAY: тёмная подача, крупный план" loading="lazy" decoding="async"></a></figure>
       <div class="body case"><span class="tag">Тест · JAYWAY</span><h3>Обложки для рашгарда</h3>
         <p><b>Задача.</b> Две самостоятельные концепции обложки, подчеркнуть более высокий сегмент.</p>
         <p><b>Что сделал.</b> Пять концепций: светлая редакционная и тёмная, где видно ткань и компрессию.</p>
         <p><b>Результат.</b> Три финальных варианта и разбор конкурентов с обоснованием.</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+
+<section class="wrap" aria-labelledby="ai-title">
+  <div class="section-head">
+    <h2 id="ai-title">Сцены из одной фотографии</h2>
+    <p class="hint">Нейросеть вместо фотостудии: тот же товар в разных интерьерах</p>
+  </div>
+  <div class="grid">
+    <article class="card">
+      <figure><a href="ai-scenes/01_parquet.jpg" data-gallery="ai-scenes/01_parquet.jpg|ai-scenes/02_laminate.jpg|ai-scenes/03_linoleum.jpg|ai-scenes/04_result.jpg"><img src="ai-scenes/01_parquet.jpg" alt="Сгенерированный фон: паркет" loading="lazy" decoding="async"></a></figure>
+      <div class="body case"><span class="tag">Генерация</span><h3>Четыре покрытия из одного брифа</h3>
+        <p><b>Задача.</b> Показать, что пылесос работает на любом твёрдом полу, а фотостудии и образцов нет.</p>
+        <p><b>Что сделал.</b> Сгенерировал в FLUX четыре покрытия — паркет, ламинат, плитку, линолеум — и собрал их в один слайд.</p>
+        <p><b>Результат.</b> Слайд честно показывает разницу покрытий и не требует съёмки.</p>
+        <p class="gallery-hint">Нажмите на картинку — там все четыре сцены</p>
       </div>
     </article>
   </div>
@@ -387,5 +427,58 @@
   </div>
 </footer>
 
+
+<div class="lb" id="lightbox" aria-hidden="true" role="dialog" aria-label="Просмотр работы">
+  <button class="prev" type="button" aria-label="Предыдущее фото">‹</button>
+  <img src="" alt="">
+  <button class="next" type="button" aria-label="Следующее фото">›</button>
+  <button class="close" type="button" aria-label="Закрыть">✕</button>
+  <span class="count"></span>
+</div>
+<script>
+(() => {
+  const lb = document.getElementById("lightbox");
+  const img = lb.querySelector("img");
+  const count = lb.querySelector(".count");
+  let items = [], idx = 0;
+
+  function show(i) {
+    idx = (i + items.length) % items.length;
+    img.src = items[idx];
+    img.alt = "Работа " + (idx + 1);
+    count.textContent = (idx + 1) + " / " + items.length;
+  }
+  function open(list) {
+    items = list; show(0);
+    lb.classList.add("is-open");
+    lb.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    lb.querySelector(".close").focus();
+  }
+  function close() {
+    lb.classList.remove("is-open");
+    lb.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+  document.addEventListener("click", (e) => {
+    const link = e.target.closest("figure a[data-gallery]");
+    if (link) {
+      e.preventDefault();
+      open(link.dataset.gallery.split("|"));
+      return;
+    }
+    if (e.target.closest(".lb .close")) return close();
+    if (e.target.closest(".lb .prev")) return show(idx - 1);
+    if (e.target.closest(".lb .next")) return show(idx + 1);
+    if (e.target === lb) return close();
+  });
+  document.addEventListener("keydown", (e) => {
+    if (!lb.classList.contains("is-open")) return;
+    if (e.key === "Escape") close();
+    if (e.key === "ArrowLeft") show(idx - 1);
+    if (e.key === "ArrowRight") show(idx + 1);
+  });
+})();
+</script>
 </body>
 </html>
